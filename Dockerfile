@@ -19,4 +19,5 @@ RUN git checkout -b origin/stable \
   && perl Build.PL
 COPY . .
 RUN chmod +x slic3r
-CMD ["/usr/src/slic3r", "--no-gui"]
+ENTRYPOINT [ "/usr/src/Slic3r/slic3r", "--no-gui" ] 
+CMD ["--help"]
