@@ -1,0 +1,2 @@
+#!/bin/sh
+perl ./slic3r.pl $*
