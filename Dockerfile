@@ -12,10 +12,9 @@ RUN apt-get update && apt-get install -y \
   && mkdir -p /usr/src/ \
   && rm -rf /var/lib/apt/lists/*
 WORKDIR /usr/src/
-RUN git clone https://github.com/alexrj/Slic3r.git
+RUN git clone -b 'origin/stable' --single-branch --depth 1 https://github.com/alexrj/Slic3r.git
 WORKDIR /usr/src/Slic3r
-RUN git checkout -b origin/stable \
-  && export LDLOADLIBS=-lstdc++ \
+RUN export LDLOADLIBS=-lstdc++ \
   && perl Build.PL
 COPY . .
 RUN chmod +x slic3r
